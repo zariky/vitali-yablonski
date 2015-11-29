@@ -1,0 +1,21 @@
+
+description = 'Micro Benchmark Application'
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.7'
+    runtime 'ch.qos.logback:logback-classic:1.1.2'
+    runtime 'ch.qos.logback:logback-core:1.1.2'
+    runtime 'org.codehaus.groovy:groovy:2.3.5'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'jmp.module01.Main'
+    }
+}
+
+task run(type: JavaExec, dependsOn: build) {
+    main jar.manifest.attributes.get('Main-Class')
+    classpath = sourceSets.main.runtimeClasspath
+    args = ['-b', 'jmp.module01.tests.A', '-b', 'jmp.module01.tests.B']
+}
