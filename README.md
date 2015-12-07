@@ -11,4 +11,4 @@
 
 
 #### Module 2 : UML
-- Class, Package, Use Case, State Machine
+- Class, Package, Component, Use Case, State Machine
