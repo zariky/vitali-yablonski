@@ -9,3 +9,7 @@
 - To run or build this project from `console` for `windows` systems: `gradlew.bat module-01:run` or `gradlew.bat module-01:build`
 - To run this project from `IDE`: execute `jmp.module01.Main` class with programm arguments `-b jmp.module01.tests.A -b  jmp.module01.tests.B`
 
+
+#### Module 2 : UML
+- Use Case, Component, Package, Sequence, State Machine, Class
+
