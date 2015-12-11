@@ -3,6 +3,7 @@
 .gradle
 build/
 *.iml
+temporary/
 
 # Ignore Gradle GUI config
 gradle-app.setting
