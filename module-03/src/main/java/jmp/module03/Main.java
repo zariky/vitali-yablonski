@@ -36,7 +36,7 @@ public class Main {
                 personService.save(PersonFactory.create());
 
                 System.out.println("All persons: " + personService.findAll());
-                System.out.println("Find person by name 'Patrick': " +personService.findByName("Patrick"));
+                System.out.println("Find person by name 'Patrick 2': " +personService.findByName("Patrick 2"));
             } finally {
                 personService.close();
             }

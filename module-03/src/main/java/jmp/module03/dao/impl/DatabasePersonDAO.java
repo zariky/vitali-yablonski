@@ -63,7 +63,8 @@ public class DatabasePersonDAO implements PersonDAO {
      */
     @Override
     public Person findByName(String name) {
-        return em.createNamedQuery(PERSON_FIND_BY_NAME_QUERY, Person.class).setParameter(PERSON_NAME_ATTRIBUTE, name).getSingleResult();
+        List<Person> persons = em.createNamedQuery(PERSON_FIND_BY_NAME_QUERY, Person.class).setParameter(PERSON_NAME_ATTRIBUTE, name).getResultList();
+        return (persons.isEmpty()) ? null : persons.get(0);
     }
 
     /**
