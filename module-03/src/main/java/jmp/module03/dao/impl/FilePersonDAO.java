@@ -103,17 +103,11 @@ public class FilePersonDAO implements PersonDAO {
      * @param persons a {@link Map} of {@link Person} that writes to file
      */
     private void writeToFile(Map<String, Person> persons) {
-        FileOutputStream fileOS = null;
-        ObjectOutputStream objectOS = null;
-
-        try {
-            fileOS = new FileOutputStream(FILE_NAME);
-            objectOS = new ObjectOutputStream(fileOS);
+        try ( FileOutputStream fileOS = new FileOutputStream(FILE_NAME);
+              ObjectOutputStream objectOS = new ObjectOutputStream(fileOS); ) {
             objectOS.writeObject(persons);
         } catch (IOException e) {
             logger.error("Persons was not written.", e);
-        } finally {
-            closeResources(objectOS, fileOS);
         }
     }
 
@@ -122,39 +116,18 @@ public class FilePersonDAO implements PersonDAO {
      * @return a persons (possibly empty)
      */
     private Map<String, Person> readFromFile() {
-        FileInputStream fileIS = null;
-        ObjectInputStream objectIS = null;
         Map<String, Person> persons = new LinkedHashMap<String, Person>();
 
-        try {
-            fileIS = new FileInputStream(FILE_NAME);
-            objectIS = new ObjectInputStream(fileIS);
+        try ( FileInputStream fileIS = new FileInputStream(FILE_NAME);
+              ObjectInputStream objectIS = new ObjectInputStream(fileIS); ) {
             persons = (Map<String, Person>) objectIS.readObject();
         } catch (IOException e) {
             logger.error("Persons cannot be read.", e);
         } catch (ClassNotFoundException e) {
             logger.error("Result is not valid.", e);
-        } finally {
-            closeResources(objectIS, fileIS);
         }
 
         return persons;
-    }
-
-    /**
-     * Close resources like {@link AutoCloseable}
-     * @param resources
-     */
-    private void closeResources(AutoCloseable... resources) {
-        for(AutoCloseable resource : resources) {
-            if (resource != null) {
-                try {
-                    resource.close();
-                } catch (Exception e) {
-                    logger.error("Resources cannot be closed.", e);
-                }
-            }
-        }
     }
 
 }

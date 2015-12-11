@@ -4,16 +4,17 @@ import jmp.module03.beans.Person;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * The Factory that creates {@link Person}
+ * The Factory that creates unique {@link Person}
  */
 public class PersonFactory {
 
     /**
-     * The pool of users
+     * The pool of unique names
      */
-    private static List<String> usersPool = new ArrayList<String>(){
+    private static List<String> namesPool = new ArrayList<String>(){
         {
             add("John");
             add("Patrick");
@@ -22,9 +23,9 @@ public class PersonFactory {
     };
 
     /**
-     * The id of pool
+     * The counter
      */
-    private static int id = 0;
+    private static int counter = 0;
 
     /**
      *  {@link PersonFactory} instances should NOT be constructed
@@ -34,11 +35,13 @@ public class PersonFactory {
 
     /**
      * Create unique {@link Person}
-     * @return a {@link Person} or a {@code null} if source unique names is absent
+     * @return a unique {@link Person}
      */
     public static final Person create() {
-        String name = usersPool.get(id++);
-        return new Person(name);
+        int id = ++counter;
+        int randomNamesPool = ThreadLocalRandom.current().nextInt(0, namesPool.size() - 1);
+        String name = namesPool.get(randomNamesPool);
+        return new Person(name + " " + id);
     }
 
 }
