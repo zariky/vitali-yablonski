@@ -1,1 +1,1 @@
-include 'module-01', 'module-03'
+include 'module-01', 'module-03', 'module-04'
