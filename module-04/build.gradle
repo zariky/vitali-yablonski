@@ -1,0 +1,17 @@
+
+description = 'Adapter'
+
+dependencies {
+    compile 'org.apache.commons:commons-lang3:3.0'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'jmp.module04.Main'
+    }
+}
+
+task run(type: JavaExec, dependsOn: build) {
+    main jar.manifest.attributes.get('Main-Class')
+    classpath = sourceSets.main.runtimeClasspath
+}
