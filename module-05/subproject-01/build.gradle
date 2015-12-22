@@ -1,0 +1,6 @@
+
+description = 'The subproject of Classloader'
+
+dependencies {
+    compile project(':module-05/main-project')
+}

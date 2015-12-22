@@ -1,7 +1,9 @@
 ## JMP 2015-2016
 
 #### Getting Started
-- all [gradle](https://gradle.org/) commands should be executed from root folder
+- All [gradle](https://gradle.org/) commands should be executed from root folder
+- To clean projects from `console` for `*nix` systems: `./gradlew clean`
+- To clean projects from `console` for `windows` systems: `gradlew.bat clean`
 
 
 #### Module 1 : Principle of Software Development (Micro Benchmark Application)
@@ -24,4 +26,11 @@
 - To run or build this project from `console` for `*nix` systems: `./gradlew module-04:run` or `./gradlew module-04:build`
 - To run or build this project from `console` for `windows` systems: `gradlew.bat module-04:run` or `gradlew.bat module-04:build`
 - To run this project from `IDE`: execute `jmp.module04.Main` class
+
+
+#### Module 5 : Classloader
+- To build of application into folder from `console` for `*nix` systems: `./gradlew :module-05/main-project:createApplication`
+- To build of application into folder from `console` for `windows` systems: `gradlew.bat :module-05/main-project:createApplication`
+- To build of application into folder from `IDE`: run `createApplication` task in `module-05/main-project` project
+- After build, go to `{root}/temporary` folder and execute command `java -jar main-project-1.0.0-SNAPSHOT.jar`
 
