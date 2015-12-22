@@ -2,8 +2,8 @@
 
 #### Getting Started
 - All [gradle](https://gradle.org/) commands should be executed from root folder
-- To clean projects from `console` for `*nix` systems: `./gradlew clean`
-- To clean projects from `console` for `windows` systems: `gradlew.bat clean`
+- To clean all subprojects from `console` for `*nix` systems: `./gradlew clean`
+- To clean all subprojects from `console` for `windows` systems: `gradlew.bat clean`
 
 
 #### Module 1 : Principle of Software Development (Micro Benchmark Application)
