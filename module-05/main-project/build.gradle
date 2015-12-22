@@ -1,0 +1,29 @@
+
+description = 'The main project of Classloader'
+
+dependencies {
+    compile 'log4j:log4j:1.2.17'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'jmp.module05.Main'
+        attributes "Class-Path": configurations.compile.collect { 'dependencies/'+it.getName() }.join(' ')
+    }
+}
+
+def copyJarToRunFolderTasks = [':module-05/main-project', ':module-05/subproject-01', ':module-05/subproject-02'].collect{ projectName ->
+    def project = project(projectName)
+    project.tasks.create(name: 'copyJarToRunFolder', type: Copy, dependsOn: project.build) {
+        from project.jar.archivePath
+        into "${rootProject.rootDir}/temporary"
+    }
+}
+
+def copyDependenciesToRunFolderTasks = tasks.create(name: 'copyDependenciesToRunFolder', type: Copy, dependsOn: project.build) {
+    from configurations.compile
+    into "${rootProject.rootDir}/temporary/dependencies"
+}
+
+task createApplication(dependsOn: [copyJarToRunFolderTasks, copyDependenciesToRunFolderTasks]) {
+}
