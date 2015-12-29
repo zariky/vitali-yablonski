@@ -10,12 +10,12 @@ import java.util.List;
 /**
  * The Factory that creates a instance of implementation {@link UserService} from specific jar
  */
-public class UserServiceFactory {
+public class UserServiceJarFactory {
 
     /**
      * The logger
      */
-    private static final Logger logger = Logger.getLogger(UserServiceFactory.class);
+    private static final Logger logger = Logger.getLogger(UserServiceJarFactory.class);
 
     /**
      * The fully-qualified name of implementation {@link UserService}
@@ -28,9 +28,9 @@ public class UserServiceFactory {
     private ClassLoader jarClassLoader;
 
     /**
-      * The Constructor of {@link UserServiceFactory} that is PRIVATE because an instance should be created from {@link Builder}
+      * The Constructor of {@link UserServiceJarFactory} that is PRIVATE because an instance should be created from {@link Builder}
       */
-    private UserServiceFactory() {
+    private UserServiceJarFactory() {
     }
 
     /**
@@ -56,15 +56,15 @@ public class UserServiceFactory {
     }
 
     /**
-     * Create new builder {@link Builder} for {@link UserServiceFactory}
+     * Create new builder {@link Builder} for {@link UserServiceJarFactory}
      * @return a {@link Builder}
      */
     public static Builder newBuilder() {
-        return new UserServiceFactory().new Builder();
+        return new UserServiceJarFactory().new Builder();
     }
 
     /**
-     * The Builder of {@link UserServiceFactory}
+     * The Builder of {@link UserServiceJarFactory}
      */
     public class Builder {
 
@@ -74,7 +74,7 @@ public class UserServiceFactory {
         private List<String> jars;
 
         /**
-         * The Constructor of {@link Builder} that is PRIVATE because an instance should be created from {@link UserServiceFactory}
+         * The Constructor of {@link Builder} that is PRIVATE because an instance should be created from {@link UserServiceJarFactory}
          */
         private Builder() {
             jars = new ArrayList<String>();
@@ -93,13 +93,13 @@ public class UserServiceFactory {
         }
 
         /**
-         * Build a {@link UserServiceFactory}
-         * @return a instance {@link UserServiceFactory}
+         * Build a {@link UserServiceJarFactory}
+         * @return a instance {@link UserServiceJarFactory}
          */
-        public UserServiceFactory build() {
+        public UserServiceJarFactory build() {
             String jar = ConsoleUtils.chooseOption(jars);
             jarClassLoader = new JarClassLoader(jar);
-            return UserServiceFactory.this;
+            return UserServiceJarFactory.this;
         }
 
     }
