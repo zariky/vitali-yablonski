@@ -1,6 +1,6 @@
 package jmp.module05;
 
-import jmp.module05.factories.UserServiceFactory;
+import jmp.module05.factories.UserServiceJarFactory;
 import jmp.module05.services.UserService;
 import org.apache.log4j.Logger;
 
@@ -22,7 +22,7 @@ public class Main {
         final String SUBPROJECT_01_JAR = "subproject-01-1.0.0-SNAPSHOT.jar";
         final String SUBPROJECT_02_JAR = "subproject-02-1.0.0-SNAPSHOT.jar";
 
-        UserServiceFactory factory = UserServiceFactory.newBuilder()
+        UserServiceJarFactory factory = UserServiceJarFactory.newBuilder()
                                                        .appendJar(SUBPROJECT_01_JAR)
                                                        .appendJar(SUBPROJECT_02_JAR)
                                                        .build();
