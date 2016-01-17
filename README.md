@@ -36,4 +36,4 @@
 
 
 #### Module 6 : Memory Management
-- To run tests from `IDE`: execute classes from `jmp.module06` packege: GarbageCollectorActivity and HeapOutOfMemoryError, PermOutOfMemoryError, StackOverflowError with VM options `-Xss1m -Xmn9m -XX:SurvivorRatio=1 -Xms16m -Xmx16m -XX:PermSize=16m -XX:MaxPermSize=16m`
+- To run tests from `IDE`: execute classes from `jmp.module06` packege: `GarbageCollectorActivity` and `HeapOutOfMemoryError`, `PermOutOfMemoryError`, `StackOverflowError` with VM options `-Xss1m -Xmn9m -XX:SurvivorRatio=1 -Xms16m -Xmx16m -XX:PermSize=16m -XX:MaxPermSize=16m`
