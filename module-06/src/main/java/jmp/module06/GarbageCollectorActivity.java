@@ -18,7 +18,7 @@ public class GarbageCollectorActivity {
         public Mentor() {
             this.mentees = new ArrayList<String>();
             for (int index = 0; index < 1000; index++) {
-                mentees.add("Mentee" + index);
+                this.mentees.add("Mentee" + index);
             }
         }
 
