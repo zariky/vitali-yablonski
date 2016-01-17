@@ -34,3 +34,6 @@
 - To build of application into folder from `IDE`: run `createApplication` task in `module-05/main-project` project
 - After build, go to `{root}/temporary` folder and execute command `java -jar main-project-1.0.0-SNAPSHOT.jar`
 
+
+#### Module 6 : Memory Management
+- To run tests from `IDE`: execute classes from `jmp.module06` packege: GarbageCollectorActivity and HeapOutOfMemoryError, PermOutOfMemoryError, StackOverflowError with VM options `-Xss1m -Xmn9m -XX:SurvivorRatio=1 -Xms16m -Xmx16m -XX:PermSize=16m -XX:MaxPermSize=16m`
