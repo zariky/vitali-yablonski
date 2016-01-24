@@ -6,13 +6,13 @@
 - To clean all subprojects from `console` for `windows` systems: `gradlew.bat clean`
 
 
-#### Module 1 : Principle of Software Development (Micro Benchmark Application)
+#### Module 1 : Principle of software development (Micro Benchmark Application)
 - To run or build this project from `console` for `*nix` systems: `./gradlew module-01:run` or `./gradlew module-01:build`
 - To run or build this project from `console` for `windows` systems: `gradlew.bat module-01:run` or `gradlew.bat module-01:build`
 - To run this project from `IDE`: execute `jmp.module01.Main` class with programm arguments `-b jmp.module01.tests.A -b  jmp.module01.tests.B`
 
 
-#### Module 2 : UML
+#### Module 2 : UML Basics
 - Use Case, Component, Package, Sequence, State Machine, Class
 
 
@@ -28,7 +28,7 @@
 - To run this project from `IDE`: execute `jmp.module04.Main` class
 
 
-#### Module 5 : Classloader
+#### Module 5 : Classloading
 - To build of application into folder from `console` for `*nix` systems: `./gradlew :module-05/main-project:createApplication`
 - To build of application into folder from `console` for `windows` systems: `gradlew.bat :module-05/main-project:createApplication`
 - To build of application into folder from `IDE`: run `createApplication` task in `module-05/main-project` project
@@ -37,3 +37,7 @@
 
 #### Module 6 : Memory Management
 - To run tests from `IDE`: execute classes from `jmp.module06` packege: `GarbageCollectorActivity` and `HeapOutOfMemoryError`, `PermOutOfMemoryError`, `StackOverflowError` with VM options `-Xss1m -Xmn9m -XX:SurvivorRatio=1 -Xms16m -Xmx16m -XX:PermSize=16m -XX:MaxPermSize=16m`
+
+
+#### Module 7 : Garbage Collection in Java
+- Serial GC, Concurrent Mark Sweep (CMS) GC

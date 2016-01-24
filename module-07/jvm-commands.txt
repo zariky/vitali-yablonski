@@ -1,0 +1,22 @@
+
+Task 1:
+
+Write a Command Line that starts a JavaApp using the Serial Collector with the following parameters:
+- the 6m initial heap size for when the JVM starts
+- the 18m maximum heap size
+- the 2m size of the Young Generation
+- the 20m starting size of the Permanent Generation
+- the 30m maximum size of the Permanent Generation
+
+java -Xmn2m -Xms6m -Xmx18m -XX:PermSize=20m -XX:MaxPermSize=30m -XX:+UseSerialGC -jar javaApp.jar
+
+Task 2:
+
+Write a Command Line that starts a JavaApp using the Concurrent Mark Sweep (CMS) Collector with 2 Parallel CMS Threads with the following parameters:
+- the 2m initial heap size for when the JVM starts
+- the 18m maximum heap size
+- the 1m size of the Young Generation
+- the 24m starting size of the Permanent Generation
+- the 36m maximum size of the Permanent Generation
+
+java -Xmn1m -Xms2m -Xmx18m -XX:PermSize=24m -XX:MaxPermSize=36m -XX:+UseConcMarkSweepGC -XX:ParallelCMSThreads=2 -jar javaApp.jar
