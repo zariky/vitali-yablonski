@@ -41,3 +41,9 @@
 
 #### Module 7 : Garbage Collection in Java
 - Serial GC, Concurrent Mark Sweep (CMS) GC
+
+
+#### Module 8 : Multithreading (Classic Model and Concurrency)
+- To run or build this project from `console` for `*nix` systems: `./gradlew module-08:run` or `./gradlew module-08:build`
+- To run or build this project from `console` for `windows` systems: `gradlew.bat module-08:run` or `gradlew.bat module-08:build`
+- To run this project from `IDE`: execute `jmp.module08.Main` class
