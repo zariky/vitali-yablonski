@@ -59,8 +59,8 @@ public class Counter {
 
         this.size = size;
         lock = new ReentrantLock();
-        increment = this.lock.newCondition();
-        decrement = this.lock.newCondition();
+        increment = lock.newCondition();
+        decrement = lock.newCondition();
         hasIncrementation = true;
     }
 
