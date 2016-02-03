@@ -1,0 +1,22 @@
+
+apply from: "$projectDir/checkstyle.gradle"
+
+description = 'Checkstyle'
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ["$rootDir/module-01/src/main/java"]
+        }
+    }
+}
+
+/**
+ * Dependencies from module-01 that is required for compilation
+ */
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.7'
+    runtime 'ch.qos.logback:logback-classic:1.1.2'
+    runtime 'ch.qos.logback:logback-core:1.1.2'
+    runtime 'org.codehaus.groovy:groovy:2.3.5'
+}
