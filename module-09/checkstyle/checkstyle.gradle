@@ -1,0 +1,35 @@
+import jmp.module09.XsltReport
+
+apply plugin: 'checkstyle'
+
+ext {
+    checkstyleConfigDir = "$projectDir/configs/checkstyle"
+}
+
+checkstyle {
+    toolVersion = '5.6'
+    configFile = new File(checkstyleConfigDir, 'checkstyle-sun.xml')
+    ignoreFailures = true
+    showViolations = false
+}
+
+afterEvaluate {
+    plugins.withType(CheckstylePlugin) {
+        sourceSets.each { sourceSet ->
+            String capitalizedSourceSetName = sourceSet.name.capitalize()
+            String reportTaskName = "checkstyle${capitalizedSourceSetName}Report"
+            String reportDir = "$reporting.baseDir/checkstyle"
+            XsltReport reportTask = tasks.create(reportTaskName, XsltReport)
+
+            reportTask.with {
+                description = "Generates a Checkstyle HTML report for ${sourceSet.name} classes."
+                dependsOn tasks."checkstyle${capitalizedSourceSetName}"
+                inputFile = new File(reportDir, "${sourceSet.name}.xml")
+                xslStyleFile = new File(checkstyleConfigDir, 'checkstyle-noframes.xsl')
+                outputFile = new File(reportDir, "checkstyle-${sourceSet.name}.html")
+            }
+
+            check.dependsOn reportTaskName
+        }
+    }
+}

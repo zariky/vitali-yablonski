@@ -1,0 +1,19 @@
+
+apply from: "$projectDir/findbugs.gradle"
+
+description = 'FindBugs'
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ["$rootDir/module-01/src/main/java"]
+        }
+    }
+}
+
+/**
+ * Dependencies from module-01 that is required for compilation
+ */
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.7'
+}
