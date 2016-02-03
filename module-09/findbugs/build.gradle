@@ -1,7 +1,7 @@
 
-apply from: "$projectDir/checkstyle.gradle"
+apply from: "$projectDir/findbugs.gradle"
 
-description = 'CheckStyle'
+description = 'FindBugs'
 
 sourceSets {
     main {

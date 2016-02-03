@@ -47,3 +47,10 @@
 - To run or build this project from `console` for `*nix` systems: `./gradlew module-08:run` or `./gradlew module-08:build`
 - To run or build this project from `console` for `windows` systems: `gradlew.bat module-08:run` or `gradlew.bat module-08:build`
 - To run this project from `IDE`: execute `jmp.module08.Main` class
+
+
+#### Module 8 : Troubleshooting
+- To generate CheckStyle and FindBugs reports from `console` for `*nix` systems: `./gradlew module-09/checkstyle:check` and `./gradlew module-09/findbugs:check`
+- To generate CheckStyle and FindBugs reports from `console` for `windows` systems: `gradlew.bat module-09/checkstyle:check` and `gradlew.bat module-09/findbugs:check`
+- To generate CheckStyle and FindBugs reports from `IDE`: execute `check` task for `checkstyle` and `findbugs` projects
+- After generate, reports will be located in `{root}/module-09/checkstyle/build/reports/checkstyle/checkstyle-main.html` and `{root}/module-09/findbugs/build/reports/findbugs/main.html`
