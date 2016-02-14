@@ -4,4 +4,5 @@ include 'module-01',
         'module-05/main-project', 'module-05/subproject-01', 'module-05/subproject-02',
         'module-06',
         'module-08',
-        'module-09/checkstyle', 'module-09/findbugs'
+        'module-09/checkstyle', 'module-09/findbugs',
+        'module-10'
