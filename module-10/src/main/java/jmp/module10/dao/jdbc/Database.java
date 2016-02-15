@@ -4,7 +4,7 @@ import jmp.module10.dao.Store;
 import jmp.module10.dao.jdbc.utils.JdbcHelper;
 
 /**
- * The database
+ * The Database
  */
 public class Database extends JdbcHelper implements Store {
 

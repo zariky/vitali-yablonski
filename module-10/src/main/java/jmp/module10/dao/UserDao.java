@@ -17,7 +17,15 @@ public interface UserDao {
     /**
      * Save {@link User} in store
      * @param user a {@link User} that saves in store
+     * @return a user
      */
     public User save(User user);
+
+    /**
+     * Save {@link User} in store
+     * @param users a list of {@link User}
+     * @return a users
+     */
+    public List<User> save(List<User> users);
 
 }

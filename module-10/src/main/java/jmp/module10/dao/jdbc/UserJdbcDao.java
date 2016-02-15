@@ -5,8 +5,8 @@ import jmp.module10.dao.UserDao;
 import jmp.module10.dao.jdbc.mappers.Mapper;
 import jmp.module10.dao.jdbc.mappers.UserMapper;
 import jmp.module10.dao.jdbc.utils.JdbcHelper;
-
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,12 +34,45 @@ public class UserJdbcDao extends JdbcHelper implements UserDao {
     /**
      * Save {@link User} in database
      * @param user a {@link User} that saves in database
+     * @return a user
      */
     @Override
-    public User save(User user) {
-        Long id = save(INSERT_USER_QUERY, new Object[]{user.getName(), user.getSurname(), new Timestamp(user.getBirthdate().getTime())});
+    public User save(final User user) {
+        List parameters = new ArrayList(){{
+            add(user.getName());
+            add(user.getSurname());
+            add(new Timestamp(user.getBirthdate().getTime()));
+        }};
+
+        Long id = save(INSERT_USER_QUERY, parameters);
         user.setId(id);
         return user;
+    }
+
+    /**
+     * Save {@link User} in database
+     * @param users a list of {@link User}
+     * @return a users
+     */
+    @Override
+    public List<User> save(List<User> users) {
+        List<List> batches = new ArrayList<List>();
+        for (int index = 0; index < users.size(); index++) {
+            final User user = users.get(index);
+            List parameters = new ArrayList() {{
+                add(user.getName());
+                add(user.getSurname());
+                add(new Timestamp(user.getBirthdate().getTime()));
+            }};
+            batches.add(parameters);
+        }
+
+        List<Long> idEntities = batcheSave(INSERT_USER_QUERY, batches);
+        for (int index = 0; index < idEntities.size(); index++) {
+            users.get(index).setId(idEntities.get(index));
+        }
+
+        return users;
     }
 
 }

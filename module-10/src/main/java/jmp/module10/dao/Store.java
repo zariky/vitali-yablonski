@@ -1,7 +1,7 @@
 package jmp.module10.dao;
 
 /**
- * The store
+ * The Store
  */
 public interface Store {
 
