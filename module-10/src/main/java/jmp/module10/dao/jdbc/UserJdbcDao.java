@@ -14,7 +14,15 @@ import java.util.List;
  */
 public class UserJdbcDao extends JdbcHelper implements UserDao {
 
-    private static final String SELECT_USER_QUERY = "SELECT u.id AS USER_ID, u.name AS USER_NAME, u.surname AS USER_SURNAME, u.birthdate AS USER_BIRTHDATE FROM users u;";
+    private static final String SELECT_USER_BY_FRIENDSHIPS_AND_LIKES_QUERY =
+            "SELECT u.id AS USER_ID, u.name AS USER_NAME, u.surname AS USER_SURNAME, u.birthdate AS USER_BIRTHDATE " +
+            "FROM users u " +
+            "INNER JOIN friendships f ON u.id = f.user1 " +
+            "INNER JOIN likes l ON u.id = l.user " +
+            "WHERE MONTH(l.timestamp) = 3 AND YEAR(l.timestamp) = 2015" +
+            "GROUP BY u.id " +
+            "HAVING SUM(u.id) > 100 AND SUM(l.id) > 100 " +
+            "ORDER BY u.id ASC";
     private static final String INSERT_USER_QUERY = "INSERT INTO users (name, surname, birthdate) VALUES (?,?,?);";
 
     /**
@@ -27,8 +35,8 @@ public class UserJdbcDao extends JdbcHelper implements UserDao {
      * @return a users
      */
     @Override
-    public List<User> findAll() {
-        return find(SELECT_USER_QUERY, userMapper);
+    public List<User> find() {
+        return find(SELECT_USER_BY_FRIENDSHIPS_AND_LIKES_QUERY, userMapper);
     }
 
     /**

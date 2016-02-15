@@ -14,3 +14,8 @@ jar {
         attributes 'Main-Class': 'jmp.module10.Main'
     }
 }
+
+task run(type: JavaExec, dependsOn: build) {
+    main jar.manifest.attributes.get('Main-Class')
+    classpath = sourceSets.main.runtimeClasspath
+}

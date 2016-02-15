@@ -12,7 +12,7 @@ public interface UserDao {
      * Find {@ User} in store
      * @return a users
      */
-    public List<User> findAll();
+    public List<User> find();
 
     /**
      * Save {@link User} in store

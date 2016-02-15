@@ -63,8 +63,9 @@ public class Main {
         List<Like> likes = generateLikes(posts, users);
         likes = likeDao.save(likes);
 
-        for (User user : userDao.findAll()) {
-            System.out.println(user);
+        logger.info("Find users that has more when 100 friends and 100 likes in March 2015");
+        for (User user : userDao.find()) {
+            logger.info(user.toString());
         }
     }
 
@@ -82,7 +83,7 @@ public class Main {
         List<Post> posts = new ArrayList<Post>();
 
         for (int index = 0; index < users.size(); index++) {
-            if ((index % 2) == 0) {
+            if ((index % 7) == 0) {
                 posts.add(new Post(users.get(index), "post" + index, new Date()));
             }
         }
@@ -114,7 +115,7 @@ public class Main {
     private static List<Friendship> generateFriendships(List<User> users) {
         List<Friendship> friendships = new ArrayList<Friendship>();
 
-        for (int firstHalf = 0; firstHalf < USERS / 2; firstHalf++) {
+        for (int firstHalf = 0; firstHalf < USERS / 4; firstHalf++) {
             if ((firstHalf % 2) == 0) {
                 for (int secondHalf = USERS / 2 + 1; secondHalf < USERS; secondHalf++) {
                     friendships.add(new Friendship(users.get(firstHalf), users.get(secondHalf), new Date()));
