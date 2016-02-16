@@ -1,0 +1,13 @@
+
+allprojects {
+    group = 'jmp'
+    version = '1.0.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    repositories {
+        jcenter()
+    }
+}

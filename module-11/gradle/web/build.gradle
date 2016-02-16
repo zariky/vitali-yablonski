@@ -1,0 +1,33 @@
+apply plugin: 'war'
+apply plugin: 'com.bmuschko.tomcat'
+
+description = 'UI'
+
+dependencies {
+    compile project(':services')
+    providedCompile 'javax.servlet:servlet-api:2.5'
+    runtime 'javax.servlet:jstl:1.1.2'
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.4'
+    }
+}
+tomcat {
+    httpPort = 8090
+    contextPath = 'jmp'
+}
+
+dependencies {
+    def tomcatVersion = '7.0.57'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+    "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
+    tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
+        exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+    }
+}

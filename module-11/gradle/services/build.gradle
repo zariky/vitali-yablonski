@@ -1,0 +1,7 @@
+
+description = 'Services'
+
+dependencies {
+    compile project(':repository')
+    testCompile 'junit:junit:4.11'
+}
