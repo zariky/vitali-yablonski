@@ -93,7 +93,7 @@ public class Main {
 
     private static List<Like> generateLikes(List<Post> posts, List<User> users) {
         List<Like> likes = new ArrayList<Like>();
-        Date february2015 = new GregorianCalendar(2015, 2, 7).getTime();
+        Date february2015 = new GregorianCalendar(2015, 1, 7).getTime();
         Date march2015 = new GregorianCalendar(2015, 2, 7).getTime();
 
         for (int index = 0; index < users.size(); index++) {

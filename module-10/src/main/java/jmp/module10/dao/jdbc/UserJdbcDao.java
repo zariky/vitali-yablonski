@@ -15,14 +15,21 @@ import java.util.List;
 public class UserJdbcDao extends JdbcHelper implements UserDao {
 
     private static final String SELECT_USER_BY_FRIENDSHIPS_AND_LIKES_QUERY =
-            "SELECT u.id AS USER_ID, u.name AS USER_NAME, u.surname AS USER_SURNAME, u.birthdate AS USER_BIRTHDATE " +
+            "SELECT  u.id AS USER_ID, u.name AS USER_NAME, u.surname AS USER_SURNAME, u.birthdate AS USER_BIRTHDATE " +
             "FROM users u " +
-            "INNER JOIN friendships f ON u.id = f.user1 " +
-            "INNER JOIN likes l ON u.id = l.user " +
-            "WHERE MONTH(l.timestamp) = 3 AND YEAR(l.timestamp) = 2015" +
-            "GROUP BY u.id " +
-            "HAVING COUNT(u.id) > 100 AND COUNT(l.id) > 100 " +
-            "ORDER BY u.id ASC";
+            "INNER JOIN (" +
+            "            SELECT f.user1 AS user, COUNT(f.user2) AS countFriends " +
+            "            FROM friendships f " +
+            "            GROUP BY f.user1 " +
+            "            HAVING countFriends > 100 " +
+            "           ) ff ON u.id = ff.user " +
+            "INNER JOIN (" +
+            "            SELECT l.user AS user, COUNT(l.id) AS countLikes " +
+            "            FROM likes l " +
+            "            WHERE MONTH(l.timestamp) = 3 AND YEAR(l.timestamp) = 2015 " +
+            "            GROUP BY l.user " +
+            "            HAVING countLikes > 100 " +
+            "           ) ll  ON u.id = ll.user";
     private static final String INSERT_USER_QUERY = "INSERT INTO users (name, surname, birthdate) VALUES (?,?,?);";
 
     /**
