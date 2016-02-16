@@ -1,0 +1,21 @@
+
+description = 'SQL Introduction'
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.7'
+    runtime 'ch.qos.logback:logback-classic:1.1.2'
+    runtime 'ch.qos.logback:logback-core:1.1.2'
+    runtime 'org.codehaus.groovy:groovy:2.3.5'
+    runtime 'com.h2database:h2:1.3.153'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'jmp.module10.Main'
+    }
+}
+
+task run(type: JavaExec, dependsOn: build) {
+    main jar.manifest.attributes.get('Main-Class')
+    classpath = sourceSets.main.runtimeClasspath
+}
