@@ -21,7 +21,7 @@ public class UserJdbcDao extends JdbcHelper implements UserDao {
             "INNER JOIN likes l ON u.id = l.user " +
             "WHERE MONTH(l.timestamp) = 3 AND YEAR(l.timestamp) = 2015" +
             "GROUP BY u.id " +
-            "HAVING SUM(u.id) > 100 AND SUM(l.id) > 100 " +
+            "HAVING COUNT(u.id) > 100 AND COUNT(l.id) > 100 " +
             "ORDER BY u.id ASC";
     private static final String INSERT_USER_QUERY = "INSERT INTO users (name, surname, birthdate) VALUES (?,?,?);";
 
