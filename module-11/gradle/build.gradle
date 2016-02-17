@@ -1,6 +1,6 @@
 
 allprojects {
-    group = 'jmp'
+    group = 'jmp-module-11'
     version = '1.0.0-SNAPSHOT'
 }
 
@@ -9,6 +9,10 @@ subprojects {
 
     repositories {
         jcenter()
+    }
+
+    dependencies {
+        testCompile 'junit:junit:4.12'
     }
 }
 

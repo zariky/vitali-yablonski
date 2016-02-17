@@ -59,3 +59,7 @@
 - To run or build this project from `console` for `*nix` systems: `./gradlew module-10:run` or `./gradlew module-10:build`
 - To run or build this project from `console` for `windows` systems: `gradlew.bat module-10:run` or `gradlew.bat module-10:build`
 - To run this project from `IDE`: execute `jmp.module10.Main` class
+
+#### Module 11 : Gradle & Maven
+- ./gradlew tomcatRunWar from {root}/module-11/gradle folder
+- gradlew.bat tomcatRunWar from {root}/module-11/gradle folder

@@ -1,16 +1,12 @@
 package jmp.module11.services.impl;
 
 import jmp.module11.bean.User;
-import jmp.module11.dao.UserDao;
 import jmp.module11.services.UserService;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 
 /**
  * The Test of {@link UserServiceImpl}
