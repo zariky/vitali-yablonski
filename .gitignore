@@ -1,8 +1,9 @@
 .DS_Store
 .idea/
 .gradle
-build/
 *.iml
+build/
+target/
 temporary/
 
 # Ignore Gradle GUI config

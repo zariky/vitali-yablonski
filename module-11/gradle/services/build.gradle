@@ -1,0 +1,6 @@
+
+description = 'Services'
+
+dependencies {
+    compile project(':repository')
+}

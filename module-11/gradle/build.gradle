@@ -1,0 +1,21 @@
+
+allprojects {
+    group = 'jmp-module-11'
+    version = '1.0.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        testCompile 'junit:junit:4.12'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9'
+}

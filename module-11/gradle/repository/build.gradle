@@ -1,0 +1,6 @@
+
+description = 'Repository'
+
+dependencies {
+    compile project(':model')
+}
