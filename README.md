@@ -63,6 +63,6 @@
 #### Module 11 : Build: Maven, Gradle
 - All Commands should be executed from `{root}/module-11/gradle` folder for `gradle` and from `{root}/module-11/maven` folder for `maven`
 - `tomcat` will be available for both projects by `http://localhost:8090/jmp-module-11`
-- To build and run `gradle` project on `tomcat` from `console` for `*nix` systems: ./gradlew tomcatRunWar
-- To build and run `gradle` project on `tomcat` from `console` for `windows` systems: gradlew.bat tomcatRunWar
-- To build and run `maven` project on `tomcat` from `console`: mvn clean install tomcat:run
+- To build and run `gradle` project on `tomcat` from `console` for `*nix` systems: `./gradlew tomcatRunWar`
+- To build and run `gradle` project on `tomcat` from `console` for `windows` systems: `gradlew.bat tomcatRunWar`
+- To build and run `maven` project on `tomcat` from `console`: `mvn clean install` and `mvn tomcat:run`
