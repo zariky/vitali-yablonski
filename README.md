@@ -66,3 +66,14 @@
 - To build and run `gradle` project on `tomcat` from `console` for `*nix` systems: `./gradlew tomcatRunWar`
 - To build and run `gradle` project on `tomcat` from `console` for `windows` systems: `gradlew.bat tomcatRunWar`
 - To build and run `maven` project on `tomcat` from `console`: `mvn clean install` and `mvn tomcat:run`
+
+
+#### Module 12 : JUnit
+
+gradlew.bat module-12:build
+gradlew.bat module-12:test
+gradlew.bat module-12:run
+
+./gradlew module-12:build
+./gradlew module-12:test
+./gradlew module-12:run
