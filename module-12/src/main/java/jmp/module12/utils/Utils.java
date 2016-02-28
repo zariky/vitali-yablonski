@@ -39,9 +39,9 @@ public final class Utils {
 
         if (number < 0) {
             throw new IllegalArgumentException("Number should be non-negative.");
-        } else if (number <= 1)
+        } else if (number <= 1) {
             factorial = 1;
-        else {
+        } else {
             factorial = number * factorial(number - 1);
         }
 
