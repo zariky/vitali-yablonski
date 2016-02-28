@@ -1,0 +1,17 @@
+
+description = 'Junit, Jmock'
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'jmp.module12.Main'
+    }
+}
+
+task run(type: JavaExec, dependsOn: build) {
+    main jar.manifest.attributes.get('Main-Class')
+    classpath = sourceSets.main.runtimeClasspath
+}

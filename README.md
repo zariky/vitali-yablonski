@@ -66,3 +66,9 @@
 - To build and run `gradle` project on `tomcat` from `console` for `*nix` systems: `./gradlew tomcatRunWar`
 - To build and run `gradle` project on `tomcat` from `console` for `windows` systems: `gradlew.bat tomcatRunWar`
 - To build and run `maven` project on `tomcat` from `console`: `mvn clean install` and `mvn tomcat:run`
+
+
+#### Module 12 : Junit, Jmock
+- To run tests or run project with tests from `console` for `*nix` systems: `./gradlew module-12:test` or `./gradlew module-12:run`
+- To run tests or run project with tests from `console` for `windows` systems: `gradlew.bat module-12:test` or `gradlew.bat module-12:run`
+- To run tests or run project from `IDE`: execute `jmp.module12.utils.UtilsTest` or `jmp.module12.Main`
