@@ -1,5 +1,5 @@
 
-description = 'jUnit and jMock'
+description = 'Unit, Jmock'
 
 dependencies {
     testCompile 'junit:junit:4.12'

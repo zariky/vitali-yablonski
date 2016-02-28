@@ -4,6 +4,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import java.util.Random;
 import static org.junit.Assert.*;
 
 @RunWith(JUnit4.class)
@@ -51,6 +52,15 @@ public class UtilsTest {
     @Test
     public void testFactorial_returnPositiveNumberWhenPassedPositiveNumber() {
         assertEquals(120, Utils.factorial(5));
+    }
+
+    @Test(timeout = 3)
+    public void testFactorial_calculateFactorialFromRandomPositiveNumberWithTimeout() {
+        Random random = new Random();
+        int minNumber = 0;
+        int maxNumber = 100;
+        int randomNumber = random.nextInt(maxNumber - minNumber + 1) + minNumber;
+        assertNotNull(Utils.factorial(randomNumber));
     }
 
     @Test

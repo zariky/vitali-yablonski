@@ -1,9 +1,11 @@
 package jmp.module12.utils;
 
-public class Utils {
+public final class Utils {
 
     private static final String EMPTY = "";
     private static final String SEPARATOR = ",";
+
+    private Utils() {}
 
     /**
      * Joins a elements of array into a single string
