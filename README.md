@@ -72,3 +72,9 @@
 - To run tests or run project with tests from `console` for `*nix` systems: `./gradlew module-12:test` or `./gradlew module-12:run`
 - To run tests or run project with tests from `console` for `windows` systems: `gradlew.bat module-12:test` or `gradlew.bat module-12:run`
 - To run tests or run project from `IDE`: execute `jmp.module12.utils.UtilsTest` or `jmp.module12.Main`
+
+#### Module 13 : Apache, Tomcat
+- `gradlew.bat module-13:initApache module-13:initTomcat`
+- `{root}/temporary/apache-tomcat-7.0.68/bin/startup.bat`
+- `{root}/temporary/Apache2/bin/Apache.exe`
+- compare `http://localhost:8081/docs/config/` and `http://localhost:8082/docs/config/`
