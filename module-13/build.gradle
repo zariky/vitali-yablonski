@@ -1,5 +1,6 @@
+import jmp.module13.InitApache
+import jmp.module13.InitTomcat
 apply plugin: 'war'
-apply plugin: 'jetty'
 
 description = 'Apache, Tomcat'
 
@@ -7,4 +8,16 @@ dependencies {
     compile project(':module-03')
     providedCompile 'javax.servlet:servlet-api:2.5'
     runtime 'javax.servlet:jstl:1.1.2'
+}
+
+task initApache(type: InitApache) {
+    source = 'https://docs.google.com/uc?authuser=0&id=0B6aMwpO2HJ9jNGN4WGxtMko3YnM&export=download'
+    target = file("${rootProject.rootDir}/temporary/Apache2.zip")
+    port = 8081
+}
+
+task initTomcat(type: InitTomcat) {
+    source = 'http://ftp.byfly.by/pub/apache.org/tomcat/tomcat-7/v7.0.68/bin/apache-tomcat-7.0.68-windows-x64.zip'
+    target = file("${rootProject.rootDir}/temporary/apache-tomcat-7.0.68-windows-x64.zip")
+    port = 8082
 }
