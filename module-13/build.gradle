@@ -1,0 +1,10 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+description = 'Apache, Tomcat'
+
+dependencies {
+    compile project(':module-03')
+    providedCompile 'javax.servlet:servlet-api:2.5'
+    runtime 'javax.servlet:jstl:1.1.2'
+}
