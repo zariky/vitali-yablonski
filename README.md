@@ -78,3 +78,4 @@
 - `{root}/temporary/apache-tomcat-7.0.68/bin/startup.bat`
 - `{root}/temporary/Apache2/bin/Apache.exe`
 - compare `http://localhost:8081/docs/config/` and `http://localhost:8082/docs/config/`
+- `gradlew.bat module-13:deployApache module-13:deployTomcat`

@@ -21,3 +21,12 @@ task initTomcat(type: InitTomcat) {
     target = file("${rootProject.rootDir}/temporary/apache-tomcat-7.0.68-windows-x64.zip")
     port = 8082
 }
+
+task deployApache(type: Copy) {
+    from fileTree("${project.projectDir}/src/main/webapp-static")
+    into "${project.rootProject.projectDir}/temporary/Apache2/htdocs/module-13"
+}
+
+task deployTomcat << {
+    println 'deployTomcat'
+}
