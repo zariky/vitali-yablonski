@@ -74,8 +74,11 @@
 - To run tests or run project from `IDE`: execute `jmp.module12.utils.UtilsTest` or `jmp.module12.Main`
 
 #### Module 13 : Apache, Tomcat
-- `gradlew.bat module-13:initApache module-13:initTomcat`
-- `{root}/temporary/apache-tomcat-7.0.68/bin/startup.bat`
-- `{root}/temporary/Apache2/bin/Apache.exe`
-- compare `http://localhost:8081/docs/config/` and `http://localhost:8082/docs/config/`
-- `gradlew.bat module-13:deployApache module-13:deployTomcat`
+- execute command `gradlew.bat module-13:initApache module-13:initTomcat` from `{root}` folder
+- run `tomcat` `{root}/temporary/apache-tomcat-7.0.68/bin/startup.bat`
+- run `apache` `{root}/temporary/Apache2/bin/Apache.exe`
+- compare pages `http://localhost:8081/docs/config/` and `http://localhost:8082/docs/config/`
+- execute command `gradlew.bat module-13:deployApache` from `{root}` folder to deploy static files on `apache`
+- execute command `gradlew.bat module-13:build` from `{root}` folder to build `war`
+- run `tomcat` web application manager `http://localhost:8082/manager/html` `user` : `tomcat`, `password` : `tomcat`
+- deploy `module-13.war` from `{root}\module-13\build\libs` folder

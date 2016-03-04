@@ -4,6 +4,8 @@ apply plugin: 'war'
 
 description = 'Apache, Tomcat'
 
+war.archiveName 'module-13.war'
+
 dependencies {
     compile project(':module-03')
     providedCompile 'javax.servlet:servlet-api:2.5'
@@ -25,8 +27,4 @@ task initTomcat(type: InitTomcat) {
 task deployApache(type: Copy) {
     from fileTree("${project.projectDir}/src/main/webapp-static")
     into "${project.rootProject.projectDir}/temporary/Apache2/htdocs/module-13"
-}
-
-task deployTomcat << {
-    println 'deployTomcat'
 }
