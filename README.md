@@ -82,3 +82,4 @@
 - execute command `gradlew.bat module-13:build` from `{root}` folder to build `war`
 - run `tomcat` web application manager `http://localhost:8082/manager/html` `user` : `tomcat`, `password` : `tomcat`
 - deploy `module-13.war` from `{root}\module-13\build\libs` folder
+- run application `http://localhost:8081/module-13/`
