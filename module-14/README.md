@@ -1,21 +1,11 @@
-Continuous Integration Concepts (Jenkins)
-
+#### Continuous Integration Concepts (Jenkins)
 - download `tomcat 7` (https://tomcat.apache.org/download-70.cgi)
 - download `jenkins` (https://jenkins-ci.org)
-- change `tomcat` http port in `{tomcat-folder}/conf/server.xml`
-
-    <Connector port="8082" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" />
-
-- add `tomcat` user in `{tomcat-folder}/conf/tomcat-users.xml`
-
-    <user username="tomcat" password="tomcat" roles="manager-script,manager-gui"/>
-
-- set `JAVA_OPTS` in `{tomcat-folder}/bin/startup.bat`
-
-    set JAVA_OPTS=-Xms512m -Xmx2048m -XX:PermSize=512m -XX:MaxPermSize=1024m
-
+- change `tomcat` http port in `{tomcat-folder}/conf/server.xml` `<Connector port="8082" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" />`
+- add `tomcat` user in `{tomcat-folder}/conf/tomcat-users.xml` `<user username="tomcat" password="tomcat" roles="manager-script,manager-gui"/>`
+- set `JAVA_OPTS` in `{tomcat-folder}/bin/startup.bat` `set JAVA_OPTS=-Xms512m -Xmx2048m -XX:PermSize=512m -XX:MaxPermSize=1024m`
 - run `tomcat` `{tomcat-folder}/bin/startup.bat`
-- go to `http://localhost:8082/manager/html` and deploy `jenkins.war`
+- go to `http://localhost:8082/manager/html` (`username` = `tomcat`, `password` = `tomcat`) and deploy `jenkins.war`
 - go to `http://localhost:8082/jenkins`
 - go to `http://localhost:8082/jenkins/pluginManager/available`
 - install following plugins : `GitHub plugin` (1.17.1) and `Deploy to container Plugin` (1.10)
