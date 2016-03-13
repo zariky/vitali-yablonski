@@ -73,6 +73,7 @@
 - To run tests or run project with tests from `console` for `windows` systems: `gradlew.bat module-12:test` or `gradlew.bat module-12:run`
 - To run tests or run project from `IDE`: execute `jmp.module12.utils.UtilsTest` or `jmp.module12.Main`
 
+
 #### Module 13 : Apache, Tomcat
 - execute command `gradlew.bat module-13:initApache module-13:initTomcat` from `{root}` folder
 - run `tomcat` `{root}/temporary/apache-tomcat-7.0.68/bin/startup.bat`
@@ -83,3 +84,6 @@
 - run `tomcat` web application manager `http://localhost:8082/manager/html` `user` : `tomcat`, `password` : `tomcat`
 - deploy `module-13.war` from `{root}/module-13/build/libs` folder
 - run application `http://localhost:8081/module-13/`
+
+
+#### Module 14 : Continuous Integration Concepts (Jenkins)
