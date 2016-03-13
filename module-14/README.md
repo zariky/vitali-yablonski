@@ -29,3 +29,4 @@
 - set `Manager password` = `tomcat`
 - set `Tomcat URL` = `http://localhost:8082`
 - `Apply` or `Save`
+- go to application `http://localhost:8082/petclinic/`
