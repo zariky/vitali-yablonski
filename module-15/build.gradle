@@ -10,9 +10,9 @@ dependencies {
 
 jettyRunWar {
     httpPort = 8081
-    contextPath = 'todo'
+    contextPath = 'jmp-module-15'
 }
 
 war {
-    classpath fileTree('src/main/java/webapp/WEB-INF/lib') // adds a file-set to the WEB-INF/lib dir.
+    classpath fileTree('src/main/java/webapp/WEB-INF/lib') // adds a file-set to the WEB-INF/lib dir
 }
