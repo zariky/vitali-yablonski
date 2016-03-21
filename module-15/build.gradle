@@ -22,6 +22,6 @@ buildscript {
 }
 
 tomcat {
-    httpPort = 8090
+    httpPort = 9090
     contextPath = 'jmp-module-15'
 }

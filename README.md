@@ -118,3 +118,9 @@
 - set `Tomcat URL` = `http://localhost:8082`
 - `Apply` or `Save`
 - go to application `http://localhost:8082/petclinic/`
+
+
+#### Module 15 : Web-Services
+- To build and run `gradle` project on `tomcat` from `console` for `*nix` systems: `./gradlew module-15:tomcatRunWar`
+- To build and run `gradle` project on `tomcat` from `console` for `windows` systems: `gradlew.bat module-15:tomcatRunWar`
+- Then go to `http://localhost:9090/jmp-module-15/sportgameservice`
