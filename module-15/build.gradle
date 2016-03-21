@@ -1,0 +1,27 @@
+apply plugin: 'war'
+apply plugin: 'com.bmuschko.tomcat'
+
+description = 'Web-Services'
+
+dependencies {
+    providedCompile 'javax.servlet:servlet-api:2.5'
+    tomcat 'org.apache.tomcat.embed:tomcat-embed-core:7.0.57'
+    tomcat 'org.apache.tomcat.embed:tomcat-embed-logging-juli:7.0.57'
+    tomcat('org.apache.tomcat.embed:tomcat-embed-jasper:7.0.57') {
+        exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.4'
+    }
+}
+
+tomcat {
+    httpPort = 9090
+    contextPath = 'jmp-module-15'
+}

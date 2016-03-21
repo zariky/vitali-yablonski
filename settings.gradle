@@ -7,4 +7,5 @@ include 'module-01',
         'module-09/checkstyle', 'module-09/findbugs',
         'module-10',
         'module-12',
-        'module-13'
+        'module-13',
+        'module-15'
