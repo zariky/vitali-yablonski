@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
-  <endpoint implementation="rand.RandService"
-	    name="RandService"
-	    url-pattern="/*"/>
+	<endpoint implementation="jmp.module15.services.SportGameService" name="SportGameService" url-pattern="/sportgameservice"/>
 </endpoints>

@@ -1,18 +1,27 @@
 apply plugin: 'war'
-apply plugin: 'jetty'
+apply plugin: 'com.bmuschko.tomcat'
 
 description = 'Web-Services'
 
 dependencies {
     providedCompile 'javax.servlet:servlet-api:2.5'
-    runtime 'javax.servlet:jstl:1.1.2'
+    tomcat 'org.apache.tomcat.embed:tomcat-embed-core:7.0.57'
+    tomcat 'org.apache.tomcat.embed:tomcat-embed-logging-juli:7.0.57'
+    tomcat('org.apache.tomcat.embed:tomcat-embed-jasper:7.0.57') {
+        exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+    }
 }
 
-jettyRunWar {
-    httpPort = 8081
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.4'
+    }
+}
+
+tomcat {
+    httpPort = 8090
     contextPath = 'jmp-module-15'
-}
-
-war {
-    classpath fileTree('src/main/java/webapp/WEB-INF/lib') // adds a file-set to the WEB-INF/lib dir
 }
