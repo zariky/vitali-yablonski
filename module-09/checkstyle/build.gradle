@@ -6,7 +6,7 @@ description = 'CheckStyle'
 sourceSets {
     main {
         java {
-            srcDirs = ["$rootDir/module-01/src/main/java"]
+        //    srcDirs = ["$rootDir/module-01/src/main/java"]
         }
     }
 }
