@@ -1,6 +1,6 @@
 package jmp.module16.entities;
 
-public enum Status {
+public enum EmployeeStatus {
 
     FULL_TIME,
 

@@ -3,15 +3,15 @@ package jmp.module16.entities;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class Address {
+public class EmployeeAddress {
 
     private String city;
 
     private String street;
 
-    public Address() {}
+    public EmployeeAddress() {}
 
-    public Address(String city, String street) {
+    public EmployeeAddress(String city, String street) {
         this.city = city;
         this.street = street;
     }
@@ -34,7 +34,7 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Address { city = " + city +", street = " + street + "}";
+        return "EmployeeAddress { city = " + city +", street = " + street + "}";
     }
 
 }
