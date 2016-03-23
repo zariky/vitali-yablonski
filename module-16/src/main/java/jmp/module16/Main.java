@@ -1,11 +1,12 @@
 package jmp.module16;
 
-import jmp.module16.entities.EmployeeAddress;
-import jmp.module16.entities.Employee;
-import jmp.module16.entities.EmployeePersonalInfo;
-import jmp.module16.entities.EmployeeStatus;
+import jmp.module16.entities.*;
 import jmp.module16.services.EmployeeService;
+import jmp.module16.services.UnitService;
 import jmp.module16.services.impl.EmployeeServiceImpl;
+import jmp.module16.services.impl.UnitServiceImpl;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,17 +20,43 @@ public class Main {
      */
     public static void main(String[] vmArguments) {
         EmployeeService employeeService = null ;
+        UnitService unitService = null;
         try {
             employeeService = new EmployeeServiceImpl();
+            //unitService = new UnitServiceImpl();
 
-            employeeService.create(new Employee("1-", "11", new EmployeeAddress("111", "1111"), EmployeeStatus.FULL_TIME, new EmployeePersonalInfo("11111")));
-            employeeService.create(new Employee("2-", "22", new EmployeeAddress("222", "2222"), EmployeeStatus.PART_TIME, new EmployeePersonalInfo("22222")));
-            employeeService.create(new Employee("3-", "33", new EmployeeAddress("333", "3333"), EmployeeStatus.FULL_TIME, new EmployeePersonalInfo("33333")));
+            Employee employee1 = new Employee("firstName-01", "lastName-01", new EmployeeAddress("city-01", "street-01"), EmployeeStatus.FULL_TIME, new EmployeePersonalInfo("characteristics-01"));
+            Employee employee2 = new Employee("firstName-02", "lastName-02", new EmployeeAddress("city-02", "street-02"), EmployeeStatus.FULL_TIME, new EmployeePersonalInfo("characteristics-02"));
+            Employee employee3 = new Employee("firstName-03", "lastName-03", new EmployeeAddress("city-03", "street-03"), EmployeeStatus.FULL_TIME, new EmployeePersonalInfo("characteristics-03"));
+
+            Project project1 = new Project("project-01");
+            Project project2 = new Project("project-02");
+
+            List<Project> projects = new ArrayList<Project>();
+            projects.add(project1);
+            projects.add(project2);
+            employee1.setProjects(projects);
+
+            employee1 = employeeService.create(employee1);
+            employee2 = employeeService.create(employee2);
+            employee3 = employeeService.create(employee3);
 
             println(employeeService.findAll());
+
+            List<Employee> employees = new ArrayList<Employee>();
+            employees.add(employee1);
+            employees.add(employee2);
+            Unit unit = new Unit("name-01", employees);
+
+            //unitService.create(unit);
+
+           // println(unitService.findAll());
         } finally {
             if (employeeService != null) {
                 employeeService.close();
+            }
+            if (unitService != null) {
+                unitService.close();
             }
         }
 

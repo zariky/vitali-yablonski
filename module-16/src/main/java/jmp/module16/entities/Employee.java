@@ -9,8 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NamedQuery(name = "Employee.findAll", query = "SELECT e from Employee e")
@@ -34,6 +38,13 @@ public class Employee {
     @JoinColumn(referencedColumnName="id")
     private EmployeePersonalInfo personalInfo;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+   	@JoinTable(name="employee_project",
+               joinColumns=@JoinColumn(name="employee_id"),
+               inverseJoinColumns=@JoinColumn(name="project_id")
+   	)
+    private List<Project> projects;
+
     public Employee() {}
 
     public Employee(String firstName, String lastName, EmployeeAddress address, EmployeeStatus status, EmployeePersonalInfo personalInfo) {
@@ -42,6 +53,12 @@ public class Employee {
         this.address = address;
         this.status = status;
         this.personalInfo = personalInfo;
+        this.projects = new ArrayList<Project>();
+    }
+
+    public Employee(String firstName, String lastName, EmployeeAddress address, EmployeeStatus status, EmployeePersonalInfo personalInfo, List<Project> projects) {
+        this(firstName, lastName, address, status, personalInfo);
+        this.projects = projects;
     }
 
     public Long getId() {
@@ -84,7 +101,7 @@ public class Employee {
         this.status = status;
     }
 
-    public EmployeePersonalInfo getpersonalInfo() {
+    public EmployeePersonalInfo getPersonalInfo() {
         return personalInfo;
     }
 
@@ -92,10 +109,19 @@ public class Employee {
         this.personalInfo = personalInfo;
     }
 
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
     @Override
     public String toString() {
         return "Employee { id = " + id + ", firstName = " + firstName + ", lastName = " + lastName +
-               ", Address = " + address + ", status = " + status + ", PersonalInfo = " + personalInfo + "}";
+               ", Address = " + address + ", status = " + status + ", PersonalInfo = " + personalInfo +
+               ", Projects = " + projects + "}";
     }
 
 }

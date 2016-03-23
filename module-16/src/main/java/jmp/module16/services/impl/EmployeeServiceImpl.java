@@ -7,6 +7,7 @@ import java.util.List;
 
 public class EmployeeServiceImpl extends AbstractServiceImpl implements EmployeeService {
 
+    @Override
     public Employee create(Employee employee1){
         em.getTransaction().begin();
         Employee employee = em.merge(employee1);
@@ -14,6 +15,7 @@ public class EmployeeServiceImpl extends AbstractServiceImpl implements Employee
         return employee;
     }
 
+    @Override
     public List<Employee> findAll(){
         TypedQuery<Employee> namedQuery = em.createNamedQuery("Employee.findAll", Employee.class);
         return namedQuery.getResultList();
