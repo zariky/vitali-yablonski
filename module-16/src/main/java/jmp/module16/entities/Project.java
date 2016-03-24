@@ -1,9 +1,19 @@
 package jmp.module16.entities;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@NamedQuery(name = "Project.findAll", query = "SELECT p from Project p")
 public class Project {
 
     @Id
@@ -23,10 +33,11 @@ public class Project {
 
     public Project(String name) {
         this.name = name;
+        this.employees = new ArrayList<Employee>();
     }
 
     public Project(String name, List<Employee> employees) {
-        this.name = name;
+        this(name);
         this.employees = employees;
     }
 

@@ -21,7 +21,7 @@ public class Unit {
     private String name;
 
     @OneToMany
-   	@JoinColumn(referencedColumnName="unit_id")
+   	@JoinColumn(referencedColumnName="id")
    	private List<Employee> employees;
 
     public Unit() {}

@@ -120,8 +120,7 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee { id = " + id + ", firstName = " + firstName + ", lastName = " + lastName +
-               ", Address = " + address + ", status = " + status + ", PersonalInfo = " + personalInfo +
-               ", Projects = " + projects + "}";
+               ", Address = " + address + ", status = " + status + ", PersonalInfo = " + personalInfo + "}";
     }
 
 }

@@ -10,11 +10,11 @@
         <class>jmp.module16.entities.Employee</class>
         <class>jmp.module16.entities.EmployeePersonalInfo</class>
         <class>jmp.module16.entities.Project</class>
-        <!--class>jmp.module16.entities.Unit</class-->
+        <class>jmp.module16.entities.Unit</class>
 
         <properties>
             <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
-            <property name="hibernate.connection.url" value="jdbc:h2:temporary/database5"/>
+            <property name="hibernate.connection.url" value="jdbc:h2:temporary/database"/>
             <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.connection.password" value=""/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
