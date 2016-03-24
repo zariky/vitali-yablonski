@@ -1,9 +1,6 @@
 package jmp.module16;
 
-import jmp.module16.entities.Employee;
-import jmp.module16.entities.EmployeeAddress;
-import jmp.module16.entities.EmployeePersonalInfo;
-import jmp.module16.entities.EmployeeStatus;
+import jmp.module16.entities.*;
 import jmp.module16.services.EmployeeService;
 import jmp.module16.services.ProjectService;
 import jmp.module16.services.UnitService;
@@ -72,7 +69,28 @@ public class Main {
     }
 
     private static void testProjectService_CRUD(ProjectService projectService,EmployeeService employeeService ) {
+        println("All projects before insert:", projectService.findAll());
 
+        for (int index = 1; index < 4; index++) {
+            projectService.create(new Project("name-" + index));
+        }
+
+        println("All projects after insert:", projectService.findAll());
+
+        Project project2 = projectService.findById(2L);
+        println("Find project by id(2):", project2);
+
+        project2.setName("name-22");
+        project2 = projectService.update(project2);
+        println("Update project by id(2):", project2);
+
+        projectService.delete(project2);
+        println("Delete project by id(2).");
+
+        println("All projects after delete project by id(2):", projectService.findAll());
+
+        projectService.findById(1L).setEmployees(employeeService.findAll());
+        println("All projects after assign employees to project by id(1):", projectService.findAll());
     }
 
     private static void println(String title) {

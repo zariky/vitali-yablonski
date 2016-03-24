@@ -7,7 +7,7 @@ public interface ProjectService {
 
     public Project create(Project project);
 
-    public Project update(Project employee);
+    public Project update(Project project);
 
     public void delete(Project employee);
 

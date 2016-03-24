@@ -33,9 +33,9 @@ public class ProjectServiceImpl extends AbstractServiceImpl implements ProjectSe
         return em.find(Project.class, id);
     }
 
-    private Project merge(Project employee1) {
+    private Project merge(Project project1) {
         em.getTransaction().begin();
-        Project project = em.merge(employee1);
+        Project project = em.merge(project1);
         em.getTransaction().commit();
         return project;
     }
