@@ -2,23 +2,42 @@ package jmp.module16.services.impl;
 
 import jmp.module16.entities.Project;
 import jmp.module16.services.ProjectService;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class ProjectServiceImpl extends AbstractServiceImpl implements ProjectService {
 
     @Override
-    public Project create(Project project1){
+    public Project create(Project project){
+        return merge(project);
+    }
+
+    @Override
+    public Project update(Project project) {
+        return merge(project);
+    }
+
+    @Override
+    public void delete(Project project) {
         em.getTransaction().begin();
-        Project project = em.merge(project1);
+        em.remove(project);
         em.getTransaction().commit();
-        return project;
     }
 
     @Override
     public List<Project> findAll(){
-        TypedQuery<Project> namedQuery = em.createNamedQuery("Project.findAll", Project.class);
-        return namedQuery.getResultList();
+        return em.createNamedQuery("Project.findAll", Project.class).getResultList();
+    }
+
+    @Override
+    public Project findById(Long id) {
+        return em.find(Project.class, id);
+    }
+
+    private Project merge(Project employee1) {
+        em.getTransaction().begin();
+        Project project = em.merge(employee1);
+        em.getTransaction().commit();
+        return project;
     }
 
 }

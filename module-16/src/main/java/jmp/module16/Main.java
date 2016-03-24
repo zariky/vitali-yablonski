@@ -1,14 +1,15 @@
 package jmp.module16;
 
-import jmp.module16.entities.*;
+import jmp.module16.entities.Employee;
+import jmp.module16.entities.EmployeeAddress;
+import jmp.module16.entities.EmployeePersonalInfo;
+import jmp.module16.entities.EmployeeStatus;
 import jmp.module16.services.EmployeeService;
 import jmp.module16.services.ProjectService;
 import jmp.module16.services.UnitService;
 import jmp.module16.services.impl.EmployeeServiceImpl;
 import jmp.module16.services.impl.ProjectServiceImpl;
 import jmp.module16.services.impl.UnitServiceImpl;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,34 +30,8 @@ public class Main {
             unitService = new UnitServiceImpl();
             projectService = new ProjectServiceImpl();
 
-            Employee employee1 = new Employee("firstName-01", "lastName-01", new EmployeeAddress("city-01", "street-01"), EmployeeStatus.FULL_TIME, new EmployeePersonalInfo("characteristics-01"));
-            Employee employee2 = new Employee("firstName-02", "lastName-02", new EmployeeAddress("city-02", "street-02"), EmployeeStatus.FULL_TIME, new EmployeePersonalInfo("characteristics-02"));
-            Employee employee3 = new Employee("firstName-03", "lastName-03", new EmployeeAddress("city-03", "street-03"), EmployeeStatus.FULL_TIME, new EmployeePersonalInfo("characteristics-03"));
-
-            Project project1 = projectService.create(new Project("project-01"));
-            Project project2 = new Project("project-022222222");
-
-            List<Project> projects = new ArrayList<Project>();
-            projects.add(project1);
-            projects.add(project2);
-            employee1.setProjects(projects);
-
-            employee1 = employeeService.create(employee1);
-            employee2 = employeeService.create(employee2);
-            employee3 = employeeService.create(employee3);
-
-            println(employeeService.findAll());
-
-            List<Employee> employees = new ArrayList<Employee>();
-            employees.add(employee1);
-            employees.add(employee2);
-            Unit unit = new Unit("name-01", employees);
-
-            unitService.create(unit);
-
-            println(unitService.findAll());
-
-            println(projectService.findAll());
+            testEmployeeService_CRUD(employeeService);
+            testProjectService_CRUD(projectService, employeeService);
         } finally {
             if (employeeService != null) {
                 employeeService.close();
@@ -68,13 +43,54 @@ public class Main {
                 projectService.close();
             }
         }
+    }
+
+    private static void testEmployeeService_CRUD(EmployeeService employeeService ) {
+        println("All employees before insert:", employeeService.findAll());
+
+        for (int index = 1; index < 6; index++) {
+            EmployeeAddress address = new EmployeeAddress("city-" + index, "street-" + index);
+            EmployeePersonalInfo personalInfo = new EmployeePersonalInfo("characteristics-" + index);
+            Employee employee = new Employee("firstName-" + index, "lastName-" + index, address, EmployeeStatus.FULL_TIME, personalInfo);
+            employeeService.create(employee);
+        }
+
+        println("All employees after insert:", employeeService.findAll());
+
+        Employee employee3 = employeeService.findById(3L);
+        println("Find employee by id(3):", employee3);
+
+        employee3.setFirstName("firstName-33");
+        employee3.getPersonalInfo().setCharacteristics("characteristics-33");
+        employee3 = employeeService.update(employee3);
+        println("Update employee by id(3):", employee3);
+
+        employeeService.delete(employee3);
+        println("Delete employee by id(3).");
+
+        println("All employees after delete employee by id(3):", employeeService.findAll());
+    }
+
+    private static void testProjectService_CRUD(ProjectService projectService,EmployeeService employeeService ) {
 
     }
 
-    private static void println(List list) {
+    private static void println(String title) {
+        System.out.println("-----------------------------------------------");
+        System.out.println(title);
+    }
+
+    private static void println(String title, Object object) {
+        println(title);
+        System.out.println(object);
+    }
+
+    private static void println(String title, List list) {
+        println(title);
         for(Object element : list) {
             System.out.println(element);
         }
+        System.out.println("Count: " + list.size());
     }
 
 }
