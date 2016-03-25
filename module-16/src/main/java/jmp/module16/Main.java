@@ -71,12 +71,14 @@ public class Main {
         employee3.setFirstName("firstName-33");
         employee3.getPersonalInfo().setCharacteristics("characteristics-33");
         employee3 = employeeService.update(employee3);
-        println("Update employee by id(3):", employee3);
+        println("Update employee with id : 3:", employee3);
 
+        employeeService.delete(employeeService.findById(2L));
         employeeService.delete(employee3);
-        println("Delete employee by id(3).");
+        employeeService.delete(employeeService.findById(4L));
+        println("Delete employees with id : 2, 3, 4.");
 
-        println("All employees after delete employee by id(3):", employeeService.findAll());
+        println("All employees after delete employees with id : 2, 3, 4:", employeeService.findAll());
     }
 
     private static void testProjectService_CRUD(ProjectService projectService,EmployeeService employeeService ) {
@@ -93,15 +95,16 @@ public class Main {
 
         project2.setName("name-22");
         project2 = projectService.update(project2);
-        println("Update project by id(2):", project2);
+        println("Update project with id : 2:", project2);
 
         projectService.delete(project2);
-        println("Delete project by id(2).");
+        projectService.delete(projectService.findById(3L));
+        println("Delete project with id : 2, 3.");
 
-        println("All projects after delete project by id(2):", projectService.findAll());
+        println("All projects after delete projects with id : 2, 3:", projectService.findAll());
 
         projectService.findById(1L).setEmployees(employeeService.findAll());
-        println("All projects after assign employees to project by id(1):", projectService.findAll());
+        println("All projects after assign employees to project with id : 1:", projectService.findAll());
     }
 
     private static void testUnitService_CRUD(UnitService unitService,EmployeeService employeeService ) {
@@ -118,15 +121,15 @@ public class Main {
 
         unit2.setName("name-22");
         unit2 = unitService.update(unit2);
-        println("Update unit by id(2):", unit2);
+        println("Update unit with id : 2:", unit2);
 
         unitService.delete(unit2);
-        println("Delete unit by id(2).");
+        println("Delete unit with id : 2.");
 
-        println("All units after delete unit by id(2):", unitService.findAll());
+        println("All units after delete unit with id : 2:", unitService.findAll());
 
         unitService.findById(1L).setEmployees(employeeService.findAll());
-        println("All units after assign employees to unit by id(1):", unitService.findAll());
+        println("All units after assign employees to unit with id : 1:", unitService.findAll());
     }
 
     private static void println(String title) {

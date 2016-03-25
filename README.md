@@ -124,3 +124,9 @@
 - To build and run `gradle` project on `tomcat` from `console` for `*nix` systems: `./gradlew module-15:tomcatRunWar`
 - To build and run `gradle` project on `tomcat` from `console` for `windows` systems: `gradlew.bat module-15:tomcatRunWar`
 - Then go to `http://localhost:9090/jmp-module-15/sportgameservice`
+
+
+#### Module 16 : JPA
+- To run or build this project from `console` for `*nix` systems: `./gradlew module-16:run` or `./gradlew module-16:build`
+- To run or build this project from `console` for `windows` systems: `gradlew.bat module-16:run` or `gradlew.bat module-16:build`
+- To run this project from `IDE`: execute `jmp.module16.Main` class
