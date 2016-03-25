@@ -10,9 +10,9 @@ public class EmployeePersonalInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-   	private Long id;
+    private Long id;
 
-   	private String characteristics;
+    private String characteristics;
 
     public EmployeePersonalInfo(){}
 

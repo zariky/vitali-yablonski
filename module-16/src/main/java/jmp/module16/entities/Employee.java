@@ -39,10 +39,10 @@ public class Employee {
     private EmployeePersonalInfo personalInfo;
 
     @ManyToMany(cascade = CascadeType.ALL)
-   	@JoinTable(name="employee_project",
+    @JoinTable(name="employee_project",
                joinColumns=@JoinColumn(name="employee_id"),
                inverseJoinColumns=@JoinColumn(name="project_id")
-   	)
+    )
     private List<Project> projects;
 
     public Employee() {}

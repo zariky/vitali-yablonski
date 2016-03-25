@@ -7,7 +7,13 @@ public interface UnitService {
 
     public Unit create(Unit unit);
 
+    public Unit update(Unit unit);
+
+    public void delete(Unit unit);
+
     public List<Unit> findAll();
+
+    public Unit findById(Long id);
 
     public void close();
 

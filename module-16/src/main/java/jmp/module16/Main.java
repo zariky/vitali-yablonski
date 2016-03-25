@@ -1,6 +1,11 @@
 package jmp.module16;
 
-import jmp.module16.entities.*;
+import jmp.module16.entities.Employee;
+import jmp.module16.entities.EmployeeAddress;
+import jmp.module16.entities.EmployeePersonalInfo;
+import jmp.module16.entities.EmployeeStatus;
+import jmp.module16.entities.Project;
+import jmp.module16.entities.Unit;
 import jmp.module16.services.EmployeeService;
 import jmp.module16.services.ProjectService;
 import jmp.module16.services.UnitService;
@@ -20,15 +25,21 @@ public class Main {
      */
     public static void main(String[] vmArguments) {
         EmployeeService employeeService = null ;
-        UnitService unitService = null;
         ProjectService projectService = null;
+        UnitService unitService = null;
         try {
             employeeService = new EmployeeServiceImpl();
-            unitService = new UnitServiceImpl();
             projectService = new ProjectServiceImpl();
+            unitService = new UnitServiceImpl();
 
+            System.out.println("\n\nEmployeeService");
             testEmployeeService_CRUD(employeeService);
+
+            System.out.println("\n\nProjectService");
             testProjectService_CRUD(projectService, employeeService);
+
+            System.out.println("\n\nUnitService");
+            testUnitService_CRUD(unitService, employeeService);
         } finally {
             if (employeeService != null) {
                 employeeService.close();
@@ -91,6 +102,31 @@ public class Main {
 
         projectService.findById(1L).setEmployees(employeeService.findAll());
         println("All projects after assign employees to project by id(1):", projectService.findAll());
+    }
+
+    private static void testUnitService_CRUD(UnitService unitService,EmployeeService employeeService ) {
+        println("All units before insert:", unitService.findAll());
+
+        for (int index = 1; index < 4; index++) {
+            unitService.create(new Unit("name-" + index));
+        }
+
+        println("All units after insert:", unitService.findAll());
+
+        Unit unit2 = unitService.findById(2L);
+        println("Find unit by id(2):", unit2);
+
+        unit2.setName("name-22");
+        unit2 = unitService.update(unit2);
+        println("Update unit by id(2):", unit2);
+
+        unitService.delete(unit2);
+        println("Delete unit by id(2).");
+
+        println("All units after delete unit by id(2):", unitService.findAll());
+
+        unitService.findById(1L).setEmployees(employeeService.findAll());
+        println("All units after assign employees to unit by id(1):", unitService.findAll());
     }
 
     private static void println(String title) {
