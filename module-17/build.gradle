@@ -11,7 +11,7 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'org.shop.Main'
+        attributes 'Main-Class': 'org.shop.ShopLauncher'
     }
 }
 
