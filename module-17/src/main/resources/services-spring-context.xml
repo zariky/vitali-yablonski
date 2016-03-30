@@ -4,25 +4,25 @@
        xmlns:p="http://www.springframework.org/schema/p"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="ItemService" class="org.shop.api.impl.ItemServiceImpl">
-        <constructor-arg ref="ItemRepository"/>
+    <bean id="itemService" class="org.shop.api.impl.ItemServiceImpl">
+        <constructor-arg ref="itemRepository"/>
     </bean>
 
-    <bean id="OrderService" class="org.shop.api.impl.OrderServiceImpl">
-        <property name="orderRepository" ref="OrderRepository"/>
-        <property name="itemService" ref="ItemService"/>
+    <bean id="orderService" class="org.shop.api.impl.OrderServiceImpl">
+        <property name="orderRepository" ref="orderRepository"/>
+        <property name="itemService" ref="itemService"/>
     </bean>
 
-    <bean id="ProductService" class="org.shop.api.impl.ProductServiceImpl" autowire="constructor"/>
+    <bean id="productService" class="org.shop.api.impl.ProductServiceImpl" autowire="constructor"/>
 
-    <bean id="ProposalService" class="org.shop.api.impl.ProposalServiceImpl">
-        <constructor-arg ref="ProposalRepository"/>
-        <property name="sellerService" ref="SellerService"/>
-        <property name="productService" ref="ProductService"/>
+    <bean id="proposalService" class="org.shop.api.impl.ProposalServiceImpl">
+        <constructor-arg ref="proposalRepository"/>
+        <property name="sellerService" ref="sellerService"/>
+        <property name="productService" ref="productService"/>
     </bean>
 
-    <bean id="SellerService" class="org.shop.api.impl.SellerServiceImpl" autowire="byType"/>
+    <bean id="sellerService" class="org.shop.api.impl.SellerServiceImpl" autowire="byType"/>
 
-    <bean id="UserService" class="org.shop.api.impl.UserServiceImpl"  p:repository-ref="UserRepository"/>
+    <bean id="userService" class="org.shop.api.impl.UserServiceImpl"  p:repository-ref="userRepository"/>
 
 </beans>

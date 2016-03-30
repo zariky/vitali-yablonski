@@ -11,6 +11,6 @@
     <import resource="services-spring-context.xml"/>
     <import resource="data-spring-context.xml"/>
 
-    <alias alias="UserServiceAlias" name="UserService"/>
+    <alias alias="userServiceAlias" name="userService"/>
 
 </beans>

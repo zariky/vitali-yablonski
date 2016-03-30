@@ -14,10 +14,9 @@ public class Main {
     public static void main(String[] vmArguments) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
 
-        Object o = context.getBean("UserService");
-        Object o1 = context.getBean("UserServiceAlias");
+        Object o = context.getBean(DataInitializer.class);
+
         System.out.println(o);
-        System.out.println(o1);
     }
 
 }
