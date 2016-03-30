@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	                       http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:constant id="AMAZON" static-field="org.shop.common.Sellers.AMAZON"/>
+    <util:constant id="SAMSUNG" static-field="org.shop.common.Sellers.SAMSUNG"/>
+
+    <util:map id="sellers" key-type="java.lang.Long" value-type="java.lang.String">
+        <entry key="1" value-ref="AMAZON"/>
+		<entry key="2" value-ref="SAMSUNG"/>
+        <entry key="3" value="Apple"/>
+    </util:map>
+
+    <bean class="org.shop.ProductInitializer">
+        <constructor-arg ref="productService"/>
+    </bean>
+
+    <bean class="org.shop.ProposalInitializer" autowire="byName"/>
+
+    <bean class="org.shop.SellerInitializer">
+        <constructor-arg ref="sellers"/>
+        <property name="sellerService" ref="sellerService"/>
+    </bean>
+
+    <bean class="org.shop.UserInitializer">
+        <constructor-arg ref="userService"/>
+    </bean>
+
+    <bean class="org.shop.DataInitializer" init-method="initData" autowire="byType"/>
+
+</beans>

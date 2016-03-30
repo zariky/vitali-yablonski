@@ -1,0 +1,21 @@
+
+description = 'Spring core'
+
+dependencies {
+    compile 'commons-collections:commons-collections:2.1.1'
+    compile 'commons-beanutils:commons-beanutils:1.8.0'
+    compile 'org.springframework:spring-core:4.2.3.RELEASE'
+    compile 'org.springframework:spring-context:4.2.3.RELEASE'
+    compile 'org.springframework:spring-beans:4.2.3.RELEASE'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.shop.ShopLauncher'
+    }
+}
+
+task run(type: JavaExec, dependsOn: build) {
+    main jar.manifest.attributes.get('Main-Class')
+    classpath = sourceSets.main.runtimeClasspath
+}
