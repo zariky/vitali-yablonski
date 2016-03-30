@@ -12,10 +12,10 @@
         <constructor-arg value="${repository.initialSequence}"/>
     </bean>
 
-	<bean id="ProductRepository" class="org.shop.repository.map.ProductMapRepository"/>
+    <bean id="ProductRepository" class="org.shop.repository.map.ProductMapRepository"/>
 
-	<bean id="ProposalRepository" class="org.shop.repository.map.ProposalMapRepository"/>
+    <bean id="ProposalRepository" class="org.shop.repository.map.ProposalMapRepository"/>
 
-	<bean id="SellerRepository" class="org.shop.repository.map.SellerMapRepository"/>
+    <bean id="SellerRepository" class="org.shop.repository.map.SellerMapRepository"/>
 
 </beans>
