@@ -1,0 +1,33 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+description = 'Spring MVC'
+
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    providedCompile 'javax.servlet.jsp:jsp-api:2.1'
+    compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
+    compile ('org.springframework:spring-context:4.1.6.RELEASE') {
+        exclude group: 'commons-logging', module : 'commons-logging'
+    }
+    compile 'org.apache.tiles:tiles-jsp:3.0.3'
+    compile 'org.apache.tiles:tiles-core:3.0.3'
+    compile 'org.apache.tiles:tiles-api:3.0.3'
+    compile 'org.apache.tiles:tiles-servlet:3.0.3'
+    compile 'org.apache.tiles:tiles-template:3.0.3'
+    compile 'org.slf4j:slf4j-api:1.6.6'
+    runtime 'org.slf4j:jcl-over-slf4j:1.6.6'
+    runtime 'org.slf4j:slf4j-log4j12:1.6.6'
+    runtime ('log4j:log4j:1.2.15') {
+        exclude group: 'javax.mail', module : 'mail'
+        exclude group: 'javax.mail', module : 'jms'
+        exclude group: 'com.sun.jdmk', module : 'jmxtools'
+        exclude group: 'com.sun.jmx', module : 'jmxri'
+    }
+    runtime 'javax.servlet:jstl:1.2'
+}
+
+jettyRun {
+    httpPort = 9090
+    contextPath = 'jmp-module-18'
+}
