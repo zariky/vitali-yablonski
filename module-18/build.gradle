@@ -27,7 +27,7 @@ dependencies {
     runtime 'javax.servlet:jstl:1.2'
 }
 
-jettyRun {
+jettyRunWar {
     httpPort = 9090
     contextPath = 'jmp-module-18'
 }

@@ -136,3 +136,9 @@
 - To run or build this project from `console` for `*nix` systems: `./gradlew module-17:run` or `./gradlew module-17:build`
 - To run or build this project from `console` for `windows` systems: `gradlew.bat module-17:run` or `gradlew.bat module-17:build`
 - To run this project from `IDE`: execute `org.shop.ShopLauncher` class
+
+
+#### Module 18 : Spring MVC
+- To build and run `gradle` project on `jetty` from `console` for `*nix` systems: `./gradlew module-18:jettyRunWar`
+- To build and run `gradle` project on `jetty` from `console` for `windows` systems: `gradlew.bat module-18:jettyRunWar`
+- Then go to `http://localhost:9090/jmp-module-18/`
